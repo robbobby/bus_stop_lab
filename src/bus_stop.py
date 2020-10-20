@@ -6,7 +6,7 @@ class BusStop:
     def add_to_queue(self, person):
         self.queue.append(person)
 
-    def empty_queue(self):
+    def clear(self):
         self.queue = []
 
     def queue_length(self):

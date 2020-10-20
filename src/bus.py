@@ -21,6 +21,6 @@ class Bus:
 
     def pick_up_from_stop(self, bus_stop):
         self.passengers += bus_stop.queue
-        bus_stop.empty_queue()
-        
+        bus_stop.clear()
+
 
