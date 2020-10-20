@@ -81,11 +81,11 @@ class TestBus(unittest.TestCase):
     # check passenger count == whatever after dropped off
 
     def test_can_pick_up_passenger_specific(self):
-        person = Person("Guido van Rossum", 64, "Ocean Terminal")
+        person = Person("Guido van Rossum", 64, "Not Ocean Terminal")
         bus_stop = BusStop("Ocean Terminal")
         bus_stop.add_to_queue(person)
         self.bus.pick_up_from_stop_specific(person, bus_stop)
-        self.assertEqual(1, self.bus.passenger_count())
+        self.assertEqual(0, self.bus.passenger_count())
 
         #### What we need to make/do #####
 # Make a second bus stop
