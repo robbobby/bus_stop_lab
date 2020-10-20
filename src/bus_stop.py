@@ -1,3 +1,11 @@
 class BusStop:
     def __init__ (self, name):
-        self.name = name    
+        self.name = name
+        self.queue = []    
+
+    def add_to_queue(self, person):
+        self.queue.append(person)
+
+    def empty_queue(self):
+        self.queue = []
+        

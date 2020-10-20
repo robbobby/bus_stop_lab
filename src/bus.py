@@ -19,3 +19,8 @@ class Bus:
     def empty(self):
         self.passengers = []
 
+    def pick_up_from_stop(self, bus_stop):
+        self.passengers += bus_stop.queue
+        bus_stop.empty_queue()
+        
+
