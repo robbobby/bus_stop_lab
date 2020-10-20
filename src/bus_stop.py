@@ -8,4 +8,6 @@ class BusStop:
 
     def empty_queue(self):
         self.queue = []
-        
+
+    def queue_length(self):
+        return len(self.queue)
