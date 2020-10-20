@@ -38,7 +38,7 @@ class TestBus(unittest.TestCase):
         self.bus.drop_off(person)
         self.assertEqual(0, self.bus.passenger_count())
 
-    @unittest.skip("Delete this line to run the test")
+   
     def test_can_empty_bus(self):
         person = Person("Guido van Rossum", 64)
         self.bus.pick_up(person)
