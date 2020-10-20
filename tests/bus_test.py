@@ -87,6 +87,17 @@ class TestBus(unittest.TestCase):
         self.bus.pick_up_from_stop_specific(person, bus_stop)
         self.assertEqual(0, self.bus.passenger_count())
 
+    def test_can_pick_up_passenger_specific(self):
+        persons = [Person("Guido van Rossum5", 64, "Not Ocean Terminal"),
+        Person("Guido van Rossum4", 64, "Not Ocean Terminal"),
+        Person("Guido van Rossum3", 64, "Not Ocean Terminal"),
+        Person("Guido van Rossum2", 64, "Not Ocean Terminal"),
+        Person("Guido van Rossum1", 64, "Ocean Terminal") ]
+        bus_stop = BusStop("Ocean Terminal")
+        bus_stop.add_to_queue(person)
+        self.bus.pick_up_from_stop_specific(person, bus_stop)
+        self.assertEqual(1, self.bus.passenger_count())
+
         #### What we need to make/do #####
 # Make a second bus stop
 # Make a second bus

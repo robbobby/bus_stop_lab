@@ -28,7 +28,7 @@ class Bus:
         bus_stop.clear()
 
     def pick_up_from_stop_specific(self, person, bus_stop):
-        if self.destination == person.destination:
-            self.passengers.append(person)
-            bus_stop.remove_from_queue(person)
-       
+        for person in persons:
+            if self.destination == person.destination:
+                self.passengers.append(person)
+                bus_stop.remove_from_queue(person)
