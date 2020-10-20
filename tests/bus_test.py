@@ -27,30 +27,66 @@ class TestBus(unittest.TestCase):
 
     
     def test_can_pick_up_passenger(self):
-        person = Person("Guido van Rossum", 64)
+        person = Person("Guido van Rossum", 64, "Ocean Terminal")
         self.bus.pick_up(person)
         self.assertEqual(1, self.bus.passenger_count())
 
    
     def test_can_drop_off_passenger(self):
-        person = Person("Guido van Rossum", 64)
+        person = Person("Guido van Rossum", 64, "Ocean Terminal")
         self.bus.pick_up(person)
         self.bus.drop_off(person)
         self.assertEqual(0, self.bus.passenger_count())
 
+    
+
    
     def test_can_empty_bus(self):
-        person = Person("Guido van Rossum", 64)
+        person = Person("Guido van Rossum", 64, "Ocean Terminal")
         self.bus.pick_up(person)
         self.bus.empty()
         self.assertEqual(0, self.bus.passenger_count())
 
     
     def test_can_pick_up_passenger_from_bus_stop(self):
-        person_1 = Person("Guido van Rossum", 64)
-        person_2 = Person("Carol Willing", 50)
-        bus_stop = BusStop("Waverly Station")
+        person_1 = Person("Guido van Rossum", 64, "Ocean Terminal")
+        person_2 = Person("Carol Willing", 50, "Ocean Terminal")
+        bus_stop = BusStop("Waverly Station", )
         bus_stop.add_to_queue(person_1)
         bus_stop.add_to_queue(person_2)
         self.bus.pick_up_from_stop(bus_stop)
         self.assertEqual(2, self.bus.passenger_count())
+
+
+
+                #### additional
+
+    def test_can_drop_off_passenger_specific(self):
+        person = Person("Guido van Rossum", 64, "Ocean Terminal")
+        bus_stop = BusStop("Ocean Terminal")
+        self.bus.pick_up(person)
+        self.bus.drop_off_specific(person, bus_stop)
+        self.assertEqual(0, self.bus.passenger_count())    
+    
+    
+    def test_can_drop_off_passenger_specific(self):
+        person = Person("Guido van Rossum", 64, "Ocean Terminal")
+        bus_stop = BusStop("Not Ocean Terminal")
+        self.bus.pick_up(person)
+        self.bus.drop_off_specific(person, bus_stop)
+        self.assertEqual(1, self.bus.passenger_count())
+
+
+
+
+        #### What we need to make/do #####
+# Make a second bus stop
+# Make a second bus
+# Make person want a particular destination
+# 
+
+        ##### What we need to test #####
+# Test bus letting people off at right stop
+
+# Duplicate tests for second Bus
+# Duplicate tests for second BusStop

@@ -16,11 +16,13 @@ class Bus:
     def drop_off(self, passenger):
         self.passengers.remove(passenger)
 
+    def drop_off_specific(self, passenger, bus_stop):
+        if passenger.destination == bus_stop.name:
+            self.passengers.remove(passenger)
+
     def empty(self):
         self.passengers = []
 
     def pick_up_from_stop(self, bus_stop):
         self.passengers += bus_stop.queue
         bus_stop.clear()
-
-
